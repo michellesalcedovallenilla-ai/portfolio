@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-bebas: 'Bebas Neue', sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+:root {
+  /* Dark Charcoal / Navy base */
+  --background: 230 30% 8%; 
+  --foreground: 0 0% 98%;
+
+  --card: 230 25% 12%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 230 25% 10%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Selective magenta / blue accents */
+  --primary: 215 100% 65%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 20% 20%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 230 20% 18%;
+  --muted-foreground: 220 15% 65%;
+
+  --accent: 320 80% 60%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 80% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 230 20% 18%;
+  --input: 230 20% 18%;
+  --ring: 215 100% 65%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 230 30% 8%; 
+  --foreground: 0 0% 98%;
+  --card: 230 25% 12%;
+  --card-foreground: 0 0% 98%;
+  --popover: 230 25% 10%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 215 100% 65%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 20% 20%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 230 20% 18%;
+  --muted-foreground: 220 15% 65%;
+  --accent: 320 80% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 80% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 230 20% 18%;
+  --input: 230 20% 18%;
+  --ring: 215 100% 65%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans bg-background text-foreground antialiased selection:bg-primary/30;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+/* Custom scrollbar for overlays */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--secondary));
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  @apply bg-card/60 backdrop-blur-xl border border-white/10 shadow-2xl;
+}

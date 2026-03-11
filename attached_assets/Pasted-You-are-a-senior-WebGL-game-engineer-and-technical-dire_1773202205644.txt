@@ -1,0 +1,321 @@
+You are a senior WebGL game engineer and technical director.
+
+Your task is to build a 3D interactive web experience that behaves like a mini video game, inspired by The Sims 1 (1999).
+
+This project is NOT a traditional website.
+
+It is an interactive spatial experience where users explore a house that represents a company's services and information.
+
+The experience must feel like playing inside a Sims-style house in the browser.
+
+CORE DESIGN PHILOSOPHY
+
+The environment should behave like a game world, not a webpage.
+
+Users should:
+
+explore rooms
+discover information through objects
+interact with characters
+switch camera modes
+
+All information should be embedded inside the world environment, not presented as static UI sections.
+
+TECHNOLOGY STACK
+
+Use the following stack exactly:
+
+Vite
+React
+Three.js
+React Three Fiber
+@react-three/drei
+
+Optional helpers:
+
+zustand for state management
+react-spring for animation
+
+Rendering must use WebGL2.
+
+PROJECT STRUCTURE
+
+Build the project as a small web game engine architecture.
+
+Create this folder structure.
+
+src
+
+core
+GameEngine.js
+GameLoop.js
+EventSystem.js
+
+scene
+MainScene.jsx
+LightingSystem.js
+EnvironmentSystem.js
+
+camera
+CameraController.js
+DollhouseCamera.js
+FirstPersonCamera.js
+
+world
+HouseGenerator.js
+RoomManager.js
+FurnitureFactory.js
+
+characters
+CharacterController.js
+NPCBehaviorSystem.js
+
+interaction
+InteractionSystem.js
+HighlightSystem.js
+ObjectTriggers.js
+
+ui
+UIOverlay.jsx
+RoomInfoPanels.jsx
+
+data
+GameData.js
+
+WORLD DESIGN
+
+The world is a Sims-style house lot.
+
+The house sits on a grassy terrain.
+
+Environment should include:
+
+grass plane
+sky gradient
+soft sunlight
+subtle ambient lighting
+
+Style must follow Sims 1 aesthetic:
+
+low poly geometry
+simple shapes
+flat textures
+clean lighting
+
+Do NOT use photorealistic assets.
+
+HOUSE GENERATION
+
+Create a procedural house model using geometry primitives.
+
+House layout:
+
+Entry Hall
+Workshop
+Study
+Living Room
+Blueprint Room
+Library
+
+Walls should be simple box meshes.
+
+Windows should emit warm light.
+
+Roof should be a simple slanted low-poly mesh.
+
+CAMERA SYSTEM
+
+Two camera systems must exist.
+
+DOLLHOUSE MODE
+
+Isometric camera.
+
+45 degree angle.
+
+User can:
+
+zoom
+pan
+click rooms
+
+Clicking a room triggers a smooth camera zoom.
+
+FIRST PERSON MODE
+
+Player height: 1.7m
+
+Controls
+
+Desktop:
+
+WASD movement
+mouse look
+
+Mobile:
+
+virtual joystick
+touch look
+
+ROOM CONTENT SYSTEM
+
+Each room contains interactive objects representing business content.
+
+ENTRY HALL
+
+Represents company introduction.
+
+Floating text objects display company overview.
+
+WORKSHOP
+
+Represents services.
+
+Each service is represented by a workstation.
+
+Branding desk
+Social media desk
+Graphics desk
+Video desk
+
+Clicking a workstation opens service details.
+
+STUDY
+
+Represents pricing.
+
+Desk with four floating folders.
+
+Click folder → open pricing panel.
+
+LIVING ROOM
+
+Represents "Why Choose Us".
+
+Floating stat objects appear in the room.
+
+Example
+
+rotating orb showing statistics.
+
+BLUEPRINT ROOM
+
+Represents workflow.
+
+Blueprint papers on table.
+
+Each blueprint opens a workflow step description.
+
+LIBRARY
+
+Represents credibility.
+
+Bookshelves contain clickable books.
+
+Click book → show definition or case study.
+
+NPC CHARACTERS
+
+Create three low-poly characters inspired by Sims.
+
+Large heads
+simple bodies
+paddle hands
+
+Characters:
+
+Andres
+Alex
+Ricardo
+
+NPC BEHAVIOR SYSTEM
+
+Each NPC should have simple autonomous behavior.
+
+Use waypoint navigation between rooms.
+
+Behavior examples:
+
+Andres
+
+moves between entry hall and study
+
+Alex
+
+works in workshop
+
+Ricardo
+
+moves between living room and library
+
+Animations
+
+idle
+walk
+sit at desk
+look at wall pictures
+
+INTERACTION SYSTEM
+
+Objects should highlight when player approaches.
+
+Highlight color
+
+magenta
+
+Clicking objects triggers events.
+
+Examples
+
+open panel
+play animation
+show text
+
+DOOR ANIMATION
+
+Clicking the front door should trigger an animation.
+
+Door rotates open.
+
+Camera moves forward into house.
+
+Transition duration
+
+1.5 seconds.
+
+DAY NIGHT SYSTEM
+
+Implement a toggle button.
+
+Day
+
+warm sunlight
+bright environment
+
+Night
+
+dark blue sky
+interior lights on
+
+Transition should animate over 2 seconds.
+
+PERFORMANCE TARGET
+
+60 fps on modern phones.
+
+Optimizations
+
+LOD models
+baked lighting
+limit dynamic lights to 3
+maximum visible polygons 100k
+
+FINAL EXPERIENCE
+
+The final experience should feel like:
+
+"A playable Sims house where each room represents part of the business."
+
+Users should explore the environment and discover information naturally through interaction.
+
+The experience must feel playful, nostalgic, and immersive.
